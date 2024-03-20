@@ -1,0 +1,305 @@
+:root {
+  --color-primary: hsl(180, 29%, 50%);
+  --color-neutral-100: hsl(180, 52%, 96%);
+  --color-neutral-300: hsl(180, 31%, 95%);
+  --color-neutral-500: hsl(180, 8%, 52%);
+  --color-neutral-700: hsl(180, 14%, 20%);
+
+  --ff-main: 'League Spartan', sans-serif;
+
+  --size-100: 0.5rem;
+  --size-300: 0.75rem;
+  --size-500: 1rem;
+  --size-550: 1.5rem;
+  --size-700: 2rem;
+  --size-800: 3rem;
+}
+
+/* global reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  font-family: var(--ff-main);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+span {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* general styling */
+
+body {
+  background-color: var(--color-neutral-100);
+  line-height: 1.5;
+}
+
+/* layout */
+
+/* .flow > * {
+  margin-bottom: var(--size-300);
+} */
+
+:where(.flow > :not(:first-child)) {
+  margin-top: var(--size-300);
+}
+
+#app {
+  width: min(1000px, 100% - var(--size-500) * 2);
+  margin: var(--size-800) auto;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  height: min(30vw, 10rem);
+  background-color: var(--color-primary);
+  background-image: url('/images/bg-header-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+@media (min-width: 40em) {
+  .header {
+    background-image: url('/images/bg-header-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+}
+
+/* filter */
+
+.filters__container {
+  padding: var(--size-550);
+  background-color: white;
+  box-shadow: 0 2px 1.5rem 0 rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -100px;
+  margin-bottom: var(--size-800);
+}
+
+.filters__container ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-500);
+}
+
+.filters__container ul li {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.filters__name {
+  background-color: var(--color-neutral-100);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 5px 7px;
+}
+
+.filters__delete {
+  border: none;
+  height: 100%;
+  background-color: var(--color-primary);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters__delete img {
+  width: 75%;
+  aspect-ratio: 1;
+}
+
+.filters__clear {
+  background-color: transparent;
+  border: none;
+  color: var(--color-neutral-500);
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.filters__clear:hover {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
+/* job list */
+
+.job-list-items {
+  margin-bottom: var(--size-800);
+}
+
+.container {
+  background-color: white;
+  padding: var(--size-550);
+  border-radius: 5px;
+  box-shadow: 0 2px 1.5rem 0 rgba(0, 0, 0, 0.15);
+}
+
+.container.highlight {
+  border-left: 5px solid var(--color-primary);
+}
+
+@media (min-width: 40em) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--size-700);
+    align-items: center;
+  }
+}
+
+.job__image {
+  width: var(--size-800);
+  aspect-ratio: 1;
+  margin-top: -3rem;
+}
+
+@media (min-width: 40em) {
+  .job__image {
+    margin: 0;
+    width: 5rem;
+  }
+}
+
+.job__details {
+  border-bottom: 1px solid var(--color-neutral-500);
+  padding-bottom: var(--size-300);
+}
+
+@media (min-width: 40em) {
+  .job__details {
+    border: none;
+    padding: none;
+  }
+}
+
+.job__details--main-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-100);
+}
+
+.job__company {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.job__pill {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: var(--size-100);
+  border-radius: 20px;
+  line-height: 1;
+}
+
+.job__pill--new {
+  background-color: var(--color-primary);
+}
+
+.job__pill--featured {
+  background-color: var(--color-neutral-700);
+}
+
+.job__position {
+  color: var(--color-neutral-700);
+  font-weight: 600;
+}
+
+@media (min-width: 40em) {
+  .job__position {
+    font-size: 20px;
+  }
+}
+
+.job__position:hover {
+  color: var(--color-primary);
+}
+
+.job__sub-info {
+  font-size: 15px;
+  color: var(--color-neutral-500);
+}
+
+.job__sub-info:not(:last-child)::after {
+  content: '·';
+  font-weight: bold;
+  margin-inline: var(--size-100);
+}
+
+hr {
+  border-color: var(--color-neutral-300);
+}
+
+.job__tags {
+  display: flex;
+  gap: var(--size-300);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 40em) {
+  .job__tags {
+    margin-left: auto;
+  }
+}
+
+.job__tags li button {
+  cursor: pointer;
+  border: none;
+  color: var(--color-primary);
+  line-height: 1;
+  background-color: var(--color-neutral-300);
+  font-weight: 600;
+  padding: var(--size-100);
+  border-radius: 5px;
+}
+
+.job__tags li button:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
